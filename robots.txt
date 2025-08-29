@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aadsbot-maker.github.io/Nada-/sitemap.xml
