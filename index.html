@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NADA EL</title>
+<!-- أيقونات Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFC0CB;
+    color: #4B0082;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D8BFD8;
+    padding: 20px;
+}
+.logo-container {
+    margin-right: 15px;
+}
+.logo {
+    width: 50px;
+    height: auto;
+}
+.site-title {
+    font-family: 'Cursive', sans-serif;
+    font-size: 2.5em;
+    color: #4B0082;
+    margin: 0;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+    justify-items: center;
+}
+
+.gallery-item {
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 150px; 
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.social-icons {
+    margin-top: 5px;
+}
+
+.social-icons a {
+    display: inline-block;
+    font-size: 24px;
+    color: #25D366; 
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+footer {
+    background-color: #D8BFD8;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+footer a {
+    color: #4B0082;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="https://f.top4top.io/p_3528uq6wu0.png" alt="NADA EL Logo" class="logo">
+    </div>
+    <h1 class="site-title">NADA EL</h1>
+</header>
+
+<div class="gallery" id="gallery"></div>
+
+<script>
+// الرابط الثابت الذي سيظهر عند الضغط على أيقونة واتساب
+const whatsappLink = "https://ouo.io/qA9Q2U";
+
+// جلب الصور من ملف JSON
+fetch('images.json')
+  .then(response => response.json())
+  .then(data => {
+    const gallery = document.getElementById('gallery');
+    data.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'gallery-item';
+        div.innerHTML = `
+            <img src="${item.src}" alt="${item.alt}">
+            <div class="social-icons">
+                <a href="${whatsappLink}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        `;
+        gallery.appendChild(div);
+    });
+});
+</script>
+
+<footer>
+    © حقوق الموقع NADA EL | <a href="https://www.facebook.com/profile.php?id=61579641904282" target="_blank">اتصل بنا</a>
+</footer>
+
+</body>
+</html>
